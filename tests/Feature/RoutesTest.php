@@ -42,6 +42,12 @@ class RoutesTest extends TestCase
         $response->assertViewIs('pages.about');
     }
 
+    public function test_login_redirect()
+    {
+        $response = $this->get('/log-in');
+        $response->assertRedirect('/login');
+    }
+
     public function test_auth_middleware_is_working()
     {
         $response = $this->get('/app/dashboard');
